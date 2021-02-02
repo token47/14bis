@@ -2,7 +2,7 @@
 
 function log() {
     local "$@"
-    echo "LOG: ${msg}"
+    echo -e "\e[1mLOG:\e[0m ${msg}"
 }
 
 
