@@ -33,5 +33,6 @@ git clone "${REPO_URL}"
 cd 14bis
 
 log msg="Exec'ing stage 2"
+chmod +x stage2.sh
 exec ./stage2.sh
 
