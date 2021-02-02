@@ -2,7 +2,7 @@
 
 source config.inc.sh
 
-# TODO: remove hardcoded "sda3" device and swarch for the CIDATA partition
+# TODO: * remove hardcoded "sda3" device and search for the CIDATA partition
 
 function generate_ci_userdata() {
 cat <<EOF

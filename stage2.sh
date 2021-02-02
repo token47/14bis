@@ -6,7 +6,7 @@
 source util.inc.sh
 source config.inc.sh
 
-log msg="Starting stage2"
+log msg="Stage2 starting"
 
 # Do here whatever needed to setup PXE boot and other stuff.
 

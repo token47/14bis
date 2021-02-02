@@ -6,6 +6,8 @@
 # and later re-spawned by itself on the virtual terminal 7 so it can
 # run concurrently and let cloud-init finish.
 
+# TODO: * Use proxy if set (for git download)
+
 _dir="${0%/*}"
 cd "$_dir"
 
@@ -19,20 +21,17 @@ if [ "$1" == "openvt" ]; then
 elif [ "$1" == "reentered" ]; then
     sleep 1
     chvt 7
-    log msg="Re-entered running from virtual terminal 7"
+    log msg="Stage1.5 re-entered running from virtual terminal 7"
 fi
 
-log msg="Starting stage1.5"
+log msg="Stage1.5 starting"
 
-mkdir /tmp/14bis
+log msg="Stage1.5 downloading Stage2"
+git clone "${REPO_URL}" /tmp/14bis
+
 cd /tmp/14bis
 
-log msg="Download stage 2"
-git clone "${REPO_URL}"
-
-cd 14bis
-
-log msg="Exec'ing stage 2"
+log msg="Stage1.5 exec'ing Stage2"
 chmod +x stage2.sh
 exec ./stage2.sh
 
