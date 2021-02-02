@@ -1,4 +1,0 @@
-#cloud-config
-hostname: test1
-fqdn: test1.example.com
-final_message: "This message is proof we injected cloudinit config at live boot"

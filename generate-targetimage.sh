@@ -6,11 +6,17 @@
 
 source config.inc.sh
 source util.inc.sh
+source cidata.inc.sh
 
 sudo /bin/true || die rc=1 msg="Cannot use sudo"
 
 log msg="Downloading ubuntu iso image"
 wget --show-progress --progress=bar -q -c -t3 "${ISOIMAGE_URL}"
+
+log msg="Verifying ISO checksum"
+if ! echo "${ISOIMAGE_SHA256SUM} ${ISOIMAGE_NAME}" | sha256sum --check; then
+    die rc=1 msg="ISO checksum does not match"
+fi
 
 log msg="Creating empty target image"
 rm -f "${TARGETIMAGE_NAME}"
@@ -45,9 +51,13 @@ sudo mkfs.fat -n CIDATA "${_lodevice}p3"
 
 log msg="Mounting data partition, copying data, unmounting"
 sudo mount "${_lodevice}p3" /mnt
-sudo cp "${CIDATA_USER}" /mnt/user-data
-sudo cp "${CIDATA_META}" /mnt/meta-data
-sudo cp "${CIDATA_NET}" /mnt/network-config
+generate_ci_userdata | sudo dd status=none of=/mnt/user-data
+generate_ci_metadata | sudo dd status=none of=/mnt/meta-data
+generate_ci_networkconfig | sudo dd status=none of=/mnt/network-config
+sudo cp config.inc.sh /mnt/
+sudo cp util.inc.sh /mnt/
+sudo cp stage1.5.sh /mnt/
+sudo chmod +x /mnt/stage1.5.sh
 sudo umount /mnt
 
 log msg="Detaching target image from loopback"
