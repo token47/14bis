@@ -4,6 +4,13 @@
 # While it may seem dangerous (i.e. format your system partition), good care has been taken
 # to avoid any undesired effects. You should be safe to run this in your normal workstation.
 
+# What we do here is dump the ISO image into a larger raw image, add a new partition on that
+# extra space and put cloud init data there. This works because the ISO image is a hybrid
+# one and embeds a partition table to be able to just be dumped into a usb flash drive and
+# booted. The resulting image is a raw image with partitions and can be flashed to usb drive.
+# That cloud init data could be placed in a separate device (local datastore only cares for
+# a filesystem with the "cidata" label). We use the same image for convenience.
+
 source config.inc.sh
 source util.inc.sh
 source cidata.inc.sh
