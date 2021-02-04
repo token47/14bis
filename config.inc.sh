@@ -5,8 +5,8 @@
 PROXY_URL=""
 
 # Room for the ISO in the destination drive (can be bigger than actual ISO)
-ISO_MAX_SIZE="$((1500 * 1024 * 1024 * 1024))" # 1500MB
-DATA_MAX_SIZE="$((400 * 1024 * 1024 * 1024))" # 400MB
+ISO_MAX_SIZE="$((1500 * 1024 * 1024))" # 1500MB
+DATA_MAX_SIZE="$((400 * 1024 * 1024))" # 400MB
 
 # The name and size of the generated image (to be later dumped to a flashdrive)
 TARGETIMAGE_NAME="14bis-bootable.img"
