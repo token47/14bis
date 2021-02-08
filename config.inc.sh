@@ -13,7 +13,7 @@ TARGETIMAGE_NAME="14bis-bootable.img"
 TARGETIMAGE_SIZE="$((ISO_MAX_SIZE + DATA_MAX_SIZE))"
 
 # You want the server image (smaller)
-ISOIMAGE_URL="http://releases.ubuntu.com/20.04/ubuntu-20.04.1-live-server-amd64.iso"
+ISOIMAGE_URL="http://releases.ubuntu.com/20.04/ubuntu-20.04.2-live-server-amd64.iso"
 ISOIMAGE_NAME="${ISOIMAGE_URL##*/}"
 ISOIMAGE_SHA256SUM="443511f6bf12402c12503733059269a2e10dec602916c0a75263e5d990f6bb93"
 

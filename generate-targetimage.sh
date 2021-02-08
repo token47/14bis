@@ -18,7 +18,8 @@ source cidata.inc.sh
 sudo /bin/true || die rc=1 msg="Cannot use sudo"
 
 log msg="Downloading ubuntu iso image"
-wget --show-progress --progress=bar -q -c -t3 "${ISOIMAGE_URL}"
+wget --show-progress --progress=bar -q -c -t3 "${ISOIMAGE_URL}" || \
+    die rc=1 msg="Error downloading image, please check url and/or network connection"
 
 log msg="Verifying ISO checksum"
 if ! echo "${ISOIMAGE_SHA256SUM} ${ISOIMAGE_NAME}" | sha256sum --check; then
