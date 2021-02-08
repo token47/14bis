@@ -1,2 +1,3 @@
 *.img
 *.iso
+config-local.inc.sh

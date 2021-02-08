@@ -61,8 +61,11 @@ log msg="Mounting data partition, copying data, unmounting"
 sudo mount "${_lodevice}p3" /mnt
 generate_ci_userdata | sudo dd status=none of=/mnt/user-data
 generate_ci_metadata | sudo dd status=none of=/mnt/meta-data
+generate_ci_vendordata | sudo dd status=none of=/mnt/vendor-data
 generate_ci_networkconfig | sudo dd status=none of=/mnt/network-config
+sudo cp cidata.inc.sh /mnt/
 sudo cp config.inc.sh /mnt/
+sudo cp -f config-local.inc.sh /mnt/
 sudo cp util.inc.sh /mnt/
 sudo cp stage1.5.sh /mnt/
 sudo chmod +x /mnt/stage1.5.sh

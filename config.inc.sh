@@ -21,9 +21,14 @@ ISOIMAGE_SHA256SUM="d1f2bf834bbe9bb43faf16f9be992a6f3935e65be0edece1dee2aa6eb176
 REPO_URL="https://git.launchpad.net/~andre-ruiz/+git/14bis/"
 
 # Static network config
-NETWORK_IFACE="ens4"
+# Set NETWORK_IFACE="auto" to automatically find the first interface with link up
+NETWORK_IFACE="auto"
 NETWORK_ADDR="192.168.250.1"
 NETWORK_MASK="24"
 NETWORK_GW="192.168.250.254"
 NETWORK_DNS="192.168.250.254"
+
+# override above configs from a local file if present
+# you can put your changes in that file instead of eddting this one
+[ -f "config-local.inc.sh" ] && source config-local.inc.sh
 
