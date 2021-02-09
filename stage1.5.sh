@@ -54,6 +54,7 @@ if [ "${NETWORK_IFACE}" == "auto" ]; then
     fi
 fi
 
+log msg="Network config: iface=$NETWORK_IFACE ip=$NETWORK_ADDR/$NETWORK_MASK gw=$NETWORK_GW dns=$NETWORK_DNS"
 generate_netplan_config > /etc/netplan/10-14bis.yaml
 netplan apply
 
