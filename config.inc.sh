@@ -18,7 +18,7 @@ ISOIMAGE_NAME="${ISOIMAGE_URL##*/}"
 ISOIMAGE_SHA256SUM="d1f2bf834bbe9bb43faf16f9be992a6f3935e65be0edece1dee2aa6eb1767423"
 
 # Repo containing stage2
-REPO_URL="https://git.launchpad.net/~andre-ruiz/+git/14bis/"
+REPO_URL="https://github.com/token47/14bis.git"
 
 # Static network config
 # Set NETWORK_IFACE="auto" to automatically find the first interface with link up
