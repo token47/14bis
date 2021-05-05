@@ -52,7 +52,7 @@ network:
         addresses: [ ${NETWORK_DNS} ]
       interfaces: [ ${NETWORK_IFACE} ]
       parameters:
-        stp: false   
+        stp: false
         forward-delay: 0
 EOF
 }
